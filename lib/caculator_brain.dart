@@ -1,11 +1,11 @@
 import 'dart:math';
 
-class CalculatorBrain {
+class CalculationHelper {
   late  int _height;
   late int _weight;
 
 
-  CalculatorBrain({required int height,required int weight}) {
+  CalculationHelper({required int height,required int weight}) {
     _height=height;
     _weight=weight;
   }

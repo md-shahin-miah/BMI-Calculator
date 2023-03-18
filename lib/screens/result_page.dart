@@ -16,56 +16,65 @@ class ResultsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Expanded(
-            child: Container(
-              padding: EdgeInsets.all(15.0),
-              alignment: Alignment.bottomLeft,
-              child: Text(
-                'Your Result',
-                style: kTitleTextStyle,
+    return SafeArea(
+      child: Scaffold(
+        // appBar: AppBar(
+        //   title: Text('BMI CALCULATOR'),
+        // ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.all(15.0),
+                alignment: Alignment.bottomCenter,
+                child: const Text(
+                  'Your Result',
+                  style: kTitleTextStyle,
+                ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 5,
-            child: ReusableCard(
-              colour: kActiveCardColour,
-              cardChild: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    resultText.toUpperCase(),
-                    style: kResultTextStyle,
-                  ),
-                  Text(
-                    bmiResult,
-                    style: kBMITextStyle,
-                  ),
-                  Text(
-                    interpretation,
-                    textAlign: TextAlign.center,
-                    style: kBodyTextStyle,
-                  ),
-                ],
-              ), onPress: () {  },
+            Expanded(
+              flex:3,
+              child: ReusableCard(
+                colour: kActiveCardColour,
+                cardChild: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      resultText.toUpperCase(),
+                      style: kResultTextStyle,
+                    ),
+                    Text(
+                      bmiResult,
+                      style: kBMITextStyle,
+                    ),
+                    Text(
+                      interpretation,
+                      textAlign: TextAlign.center,
+                      style: kBodyTextStyle,
+                    ),
+                  ],
+                ), onPress: () {  },
+              ),
             ),
-          ),
-          BottomButton(
-            buttonTitle: 'RE-CALCULATE',
-            onTap: () {
-              Navigator.pop(context);
-            },
-          )
-        ],
+            Expanded(
+              flex: 1,
+              child: Container(
+
+                padding: EdgeInsets.symmetric(vertical: 25,horizontal: 10),
+                child: BottomButton(
+                  buttonTitle: 'RE-CALCULATE',
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
